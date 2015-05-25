@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="layout :: head">
+</head>
+<body role="document">
+<div class="container" th:replace="layout :: navbar">
+</div>
+
+<div class="container" role="main">
+    <div class="page-header">
+        <h1>Expresiónes <small>Spring Expression Language (SpEL)</small></h1>
+    </div>
+    <div class="alert alert-success" th:if="${result}" >
+        <strong>Resultado:</strong> <code th:text="${result}"></code> <br/> <br/>
+        <pre th:text="${lastSpel}"></pre>
+    </div>
+    <div class="alert alert-danger" th:if="${error}" >
+        <strong>Error:</strong> <code th:text="${error}"></code> <br/> <br/>
+        <pre th:text="${lastSpel}"></pre>
+    </div>
+    <form method="post">
+        <div class="form-group">
+            <label for="spel">Expresión</label>
+            <input type="text" name="spel" class="form-control" id="spel" placeholder="5 + 2" />
+        </div>
+        <button type="submit" class="btn btn-primary">Evaluar</button>
+    </form>
+</div>
+
+<!-- Before body close -->
+<th:block th:include="layout :: beforeBodyClose"/>
+</body>
+</html>
